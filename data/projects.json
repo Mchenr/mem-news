@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-28",
+  "projects": [
+    {
+      "name": "OpenViking",
+      "repo": "volcengine/OpenViking",
+      "category": "context-database",
+      "homepage": "https://openviking.ai/"
+    },
+    {
+      "name": "MemOS",
+      "repo": "MemTensor/MemOS",
+      "category": "memory-os",
+      "homepage": "https://memos.openmem.net/"
+    },
+    {
+      "name": "Graphiti",
+      "repo": "getzep/graphiti",
+      "category": "temporal-knowledge-graph",
+      "homepage": "https://www.getzep.com/"
+    },
+    {
+      "name": "Letta",
+      "repo": "letta-ai/letta",
+      "category": "stateful-agent-runtime",
+      "homepage": "https://www.letta.com/"
+    },
+    {
+      "name": "Hindsight",
+      "repo": "vectorize-io/hindsight",
+      "category": "learning-memory",
+      "homepage": "https://hindsight.vectorize.io/"
+    },
+    {
+      "name": "Mem0",
+      "repo": "mem0ai/mem0",
+      "category": "memory-layer",
+      "homepage": "https://mem0.ai/"
+    },
+    {
+      "name": "Cognee",
+      "repo": "topoteretes/cognee",
+      "category": "graph-vector-memory",
+      "homepage": "https://www.cognee.ai/"
+    },
+    {
+      "name": "ReMe",
+      "repo": "agentscope-ai/ReMe",
+      "category": "agent-memory-kit",
+      "homepage": "https://reme.agentscope.io/"
+    },
+    {
+      "name": "Supermemory",
+      "repo": "supermemoryai/supermemory",
+      "category": "context-engine",
+      "homepage": "https://supermemory.ai/"
+    },
+    {
+      "name": "Memori",
+      "repo": "MemoriLabs/Memori",
+      "category": "structured-agent-state",
+      "homepage": "https://memorilabs.ai/"
+    }
+  ]
+}
