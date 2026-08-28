@@ -14,6 +14,7 @@ import json
 import os
 import pathlib
 import sys
+import time
 from typing import Dict, List, Optional, Union
 import urllib.error
 import urllib.parse
@@ -27,7 +28,9 @@ USER_AGENT = "mem-news-collector/1.0"
 
 
 def api_get(
-    path: str, params: Optional[Dict[str, Union[str, int]]] = None
+    path: str,
+    params: Optional[Dict[str, Union[str, int]]] = None,
+    attempts: int = 3,
 ):
     url = f"{API_ROOT}{path}"
     if params:
@@ -41,14 +44,30 @@ def api_get(
     if token:
         headers["Authorization"] = f"Bearer {token}"
     request = urllib.request.Request(url, headers=headers)
-    try:
-        with urllib.request.urlopen(request, timeout=30) as response:
-            return json.load(response)
-    except urllib.error.HTTPError as exc:
-        if exc.code == 404:
-            return None
-        detail = exc.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"GitHub API {exc.code} for {url}: {detail}") from exc
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.load(response)
+        except urllib.error.HTTPError as exc:
+            if exc.code == 404:
+                return None
+            detail = exc.read().decode("utf-8", errors="replace")
+            if exc.code == 403 and "rate limit" in detail.lower():
+                reset = exc.headers.get("X-RateLimit-Reset", "unknown")
+                raise RuntimeError(
+                    "GitHub API rate limit exceeded for "
+                    f"{url}; reset={reset}. Set GITHUB_TOKEN or use the "
+                    "official-page fallback documented in AUTOMATION.md."
+                ) from exc
+            if exc.code not in {429, 500, 502, 503, 504} or attempt == attempts:
+                raise RuntimeError(
+                    f"GitHub API {exc.code} for {url}: {detail}"
+                ) from exc
+        except urllib.error.URLError as exc:
+            if attempt == attempts:
+                raise RuntimeError(f"GitHub API network error for {url}: {exc}") from exc
+        time.sleep(2 ** (attempt - 1))
+    raise AssertionError("unreachable")
 
 
 def load_projects() -> List[Dict[str, str]]:
