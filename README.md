@@ -2,7 +2,7 @@
 
 持续跟踪开源 Agent Memory / Context Engine 的技术路线、工程现状与社区变化。
 
-> 当前基线：2026-08-28 · [最新周报](reports/2026-08-28.md) · 数据来自项目仓库、Release、论文和可复现评测；厂商自报结果会单独标记，不把 GitHub Stars 等同于技术质量。
+> 当前基线：2026-08-31 · [最新周报](reports/2026-08-31.md) · 数据来自项目仓库、Release、论文和可复现评测；厂商自报结果会单独标记，不把 GitHub Stars 等同于技术质量。本表 Stars 沿用 2026-08-28 API 快照，本期因 API 网络失败未伪造新精确值。
 
 ## 结论先行
 
@@ -22,14 +22,14 @@ Agent Memory 已经从“聊天记录向量检索”分化成五条路线：
 
 | 排名 | 项目 | 当前快照 | 核心技术价值 | 主要限制 |
 |---:|---|---|---|---|
-| 1 | [OpenViking](https://github.com/volcengine/OpenViking) | 33,999 ★ · v0.4.16 · AGPL-3.0 | 文件系统式 Context DB，统一 Memory、Knowledge、Skills；分层加载、递归检索和可观测轨迹 | 较新；服务端 AGPL 对商业集成有约束 |
-| 2 | [MemOS](https://github.com/MemTensor/MemOS) | 11,059 ★ · local plugin v2.0.16 · Apache-2.0 | 同时抽象文本、激活和参数记忆；MemCube、调度、版本、技能复用 | 架构范围大，部署和概念复杂度较高 |
+| 1 | [OpenViking](https://github.com/volcengine/OpenViking) | 33,999 ★ · v0.4.17 · AGPL-3.0 | 文件系统式 Context DB，统一 Memory、Knowledge、Skills；分层加载、递归检索和可观测轨迹 | 较新；服务端 AGPL 对商业集成有约束 |
+| 2 | [MemOS](https://github.com/MemTensor/MemOS) | 11,059 ★ · v2.0.32 / local plugin v2.0.17 · Apache-2.0 | 同时抽象文本、激活和参数记忆；MemCube、调度、版本、技能复用 | 架构范围大，部署和概念复杂度较高 |
 | 3 | [Graphiti](https://github.com/getzep/graphiti) | 30,367 ★ · v0.29.3 · Apache-2.0 | 双时态知识图谱，适合动态事实、冲突更新和历史状态查询 | 不是完整 Memory OS；通常依赖图数据库和 LLM 抽取 |
 | 4 | [Letta](https://github.com/letta-ai/letta) | 24,471 ★ · 0.16.8 · Apache-2.0 | MemGPT 的工程化延续，Agent 自主管理核心、召回与归档记忆 | 是完整 Agent Runtime，只接记忆时偏重 |
 | 5 | [Hindsight](https://github.com/vectorize-io/hindsight) | 21,553 ★ · v0.9.2 · MIT | 多策略召回与 mental model；公开多套长期记忆 benchmark | 项目和结论主要来自同一团队，需独立复验成本/效果 |
 | 6 | [Mem0](https://github.com/mem0ai/mem0) | 64,229 ★ · Apache-2.0 | 事实抽取、多作用域、多信号检索，生态与接入成熟度领先 | 托管平台和 OSS 能力并非完全同一条边界 |
 | 7 | [Cognee](https://github.com/topoteretes/cognee) | 30,311 ★ · v1.5.3 · Apache-2.0 | Graph + Vector ECL 管线；remember/recall/improve/forget 生命周期完整 | 灵活但复杂；独立同口径评测仍不足 |
-| 8 | [ReMe](https://github.com/agentscope-ai/ReMe) | 3,362 ★ · v0.4.1.8 · Apache-2.0 | 文件与向量双形态；Personal、Procedural、Tool Memory；评测代码较完整 | 生态较小且接口快速演进 |
+| 8 | [ReMe](https://github.com/agentscope-ai/ReMe) | 3,362 ★ · v0.4.1.9 · Apache-2.0 | 文件与向量双形态；Personal、Procedural、Tool Memory；评测代码较完整 | 生态较小且接口快速演进 |
 | 9 | [Supermemory](https://github.com/supermemoryai/supermemory) | 29,112 ★ · server-v0.0.8 · MIT | 通用 Context Engine，MCP、TypeScript 和 Coding Agent 体验突出 | 云端、OSS、自托管能力边界需要逐项确认 |
 | 10 | [Memori](https://github.com/MemoriLabs/Memori) | 16,255 ★ · v3.3.6 | 从对话和 Agent 执行中形成实体、事件、事实、关系、规则与技能 | 服务/平台导向明显，独立评测证据较少 |
 
