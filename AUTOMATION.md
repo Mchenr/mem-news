@@ -11,6 +11,9 @@ The Codex weekly task attached to this repository must:
    - in development or proposed;
    - documentation/marketing only.
 5. Create `reports/YYYY-MM-DD.md` in Chinese. Include a weekly summary, one section per tracked project, an emerging-project radar, next-week watch items, and evidence boundaries.
+   - Lead with key functional capabilities, behavioral or deployment boundaries, and breaking changes.
+   - Omit routine bug fixes, documentation edits, UI polish and release-process changes from project prose unless they materially change behavior, compatibility, security, deployment or licensing.
+   - If a project has no key functional or breaking change, keep its section to one bounded sentence.
 6. Search GitHub for Agent Memory projects created during the last 120 days. Prioritize unusual star velocity, sustained commit activity, original architecture, papers or reproducible benchmarks. Exclude generic agent frameworks, vector databases and curated lists unless they reveal a concrete memory project.
 7. Update `README.md` only when the durable baseline, ranking, architecture, selection guidance or project metadata materially changes. Do not rewrite it merely to mention weekly news.
 8. Validate Markdown links and run `python3 -m py_compile scripts/collect.py` plus the repository validation workflow before committing.
